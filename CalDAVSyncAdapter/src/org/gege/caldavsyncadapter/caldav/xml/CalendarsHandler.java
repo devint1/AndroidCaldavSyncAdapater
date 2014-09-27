@@ -108,7 +108,9 @@ public class CalendarsHandler extends DefaultHandler {
 				} else if (DISPLAYNAME.equals(localName)) {
 					calendar.setCalendarDisplayName(stringBuilder.toString());
 				} else if (GETCTAG.equals(localName)) {
-					calendar.setCTag(stringBuilder.toString(), false);
+					if(stringBuilder.length() > 0 || calendar.getcTag().length() == 0) {
+						calendar.setCTag(stringBuilder.toString(), false);
+					}
 				} else if (CALENDAR_COLOR.equals(localName)) {
 					calendar.setCalendarColorAsString(stringBuilder.toString());
 				}
