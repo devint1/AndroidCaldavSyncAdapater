@@ -28,6 +28,7 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 //import java.security.GeneralSecurityException;
 
+
 import javax.xml.parsers.ParserConfigurationException;
 
 import net.fortuna.ical4j.data.ParserException;
@@ -491,6 +492,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
 						values.put(Event.UID, newGUID);
 						values.put(Events.DIRTY, 0);
 						values.put(Event.RAWDATA, androidEvent.getIcsEvent().toString());
+						values.put(AndroidEvent.INTERNALTAG, 0);
 						
 						int rowCount = provider.update(asSyncAdapter(androidEvent.getUri(), account.name, account.type), values, null, null);
 						if (rowCount == 1) {
